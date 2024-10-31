@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Beuties</div>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="#">Wish List</a>
+            <a href="#">About Us</a>
+        </div>
+
+        <div class="search-container">
+            <img src="search.png" class="search-icon" alt="Search Icon">
+            <input type="text" class="search-input" placeholder="Search" id="brand"/>
+            <button id="search-btn">Search</button>
+        </div>
+    </div>
+    <div class="pic-intro">
+        <img src="products.jpg" />
+    </div>
+
+    <div class="feature">
+
+        <div class="fea1">
+            <img src="luxury.png">
+            <h5>Luxurious Product</h5>
+            <p>Offers exclusive, high-quality luxury beauty products from top brands, often in limited editions for a premium, and elevated beauty experience. </p>
+        </div>
+        
+        <div class="line1"></div>
+
+        <div class="fea1">
+            <img src="wish.png">
+            <h5>Wish List</h5>
+            <p>Create personalized wish lists,enabling them to save, organize preferred products, and set custom preferences based on their unique beauty interests. </p>
+        </div>
+
+        <div class="line2"></div>
+
+        <div class="fea1">
+            <img src="loc.png">
+            <h5>Guidance</h5>
+            <p>Guides users to purchase products by providing direct links to the shop, ensuring a seamless and convenient shopping experience for all desired items. </p>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('search-btn').addEventListener('click', () => {
+        const brand = document.getElementById('brand').value;
+        if (brand) {
+            localStorage.setItem('brand', brand);
+            window.location.href = 'index.html';
+        }
+    });
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Beuties / Izzah Shafie</p>
+    </footer>
+</body>
+</html>

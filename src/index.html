@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Recommendations</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">Beuties</div>
+
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="#">Wish List</a>
+        <a href="#">About Us</a>
+    </div>
+
+    <div class="search-container">
+        <img src="search.png" class="search-icon" alt="Search Icon">
+        <input type="text" class="search-input" placeholder="Search" id="brand"/>
+        <button id="search-btn">Search</button>
+    </div>
+</div>
+  
+  <div class="container">
+    <div class="filter-section">
+      <h5>Filter</h5>
+      <label for="min-price">Min Price:</label>
+      <input type="number" id="min-price" placeholder="e.g. 5" />
+      <br><br>
+      <label for="max-price">Max Price:</label>
+      <input type="number" id="max-price" placeholder="e.g. 30" />
+      <br><br>
+      <button id="fetch-btn">Get Recommendations</button>
+    </div>
+
+  <div id="product-list"></div>
+
+  <script src="main.js"></script>
+
+<footer>
+  <p>&copy; 2024 Beuties / Izzah Shafie</p>
+</footer>
+</body>
+</html>
+
+
