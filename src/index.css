@@ -1,11 +1,7 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  margin: 20px;
-}
-.product {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px 0;
+  background-color: #f5f5f5;
 }
 
 .navbar {
@@ -17,6 +13,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   top: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 /* Logo Styling */
@@ -72,6 +69,33 @@ body {
   width: 200px;
 }
 
+#search-btn {
+  background-color: #3d1b10; /* Dark brown */
+  color: #ffffff; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px; /* Space between input and button */
+  transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+  background-color: #91817e; /* Lighter color on hover */
+}
+
+.pic-intro {
+  width: 100%;
+  height: 400px;
+  background-image: url('products.jpg'); /* Background image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   display: flex;
   margin-top: 20px;
@@ -86,22 +110,94 @@ body {
 
 .product-list-section {
   flex: 1; /* Take the remaining space */
+  display: flex;
+  flex-wrap: wrap; /* Allow products to wrap onto the next line */
+  gap: 20px; /* Space between product items */
+  margin-top: 20px; /* Space above product list */
 }
 
 .product {
   border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px 0;
+  border-radius: 8px; /* Rounded corners for product cards */
+  padding: 15px; /* Increased padding for better spacing */
+  background-color: #f9f9f9; /* Light background for product cards */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+  width: calc(30% - 20px); /* Responsive width; adjust for desired number of products per row */
+  min-width: 250px; /* Minimum width for small screens */
+  max-width: 300px; /* Maximum width for larger screens */
 }
 
-h5 {
-  margin: 0 0 10px;
+.product:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.product-image {
+  max-width: 100%; /* Responsive image sizing */
+  border-radius: 8px; /* Rounded corners for images */
+}
+
+.product h4 {
+  margin: 10px 0 5px; /* Spacing above and below the product title */
+  font-size: 20px; /* Title font size */
+  color: #3d1b10; /* Title color */
+}
+
+.product p {
+  margin: 5px 0; /* Spacing for product description */
+  color: #666; /* Description color */
+}
+
+.product .description {
+  margin-top: 10px; /* Space above the description */
+}
+
+.product-links {
+  margin-top: 10px; /* Space above the links section */
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+}
+
+.product .buy-link, 
+.product .website-link {
+  text-decoration: none;
+  color: #3d1b10; /* Link color */
+  margin: 5px 0; /* Space between links */
+  font-weight: bold; /* Bold links */
+}
+
+.product .buy-link:hover,
+.product .website-link:hover {
+  color: #91817e; /* Change color on hover */
+}
+
+/* Styles for the notification popup */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #3d1b10;
+  color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-20px);
+  z-index: 1000;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
   width: 100%;
+  bottom: 0;
   background-color: #c4a79e; 
   display: flex;
   justify-content: center;

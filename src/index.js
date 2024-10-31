@@ -1,5 +1,6 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu} = require('electron');
 const path = require('node:path');
+const { sandboxed } = require('node:process');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -7,22 +8,21 @@ if (require('electron-squirrel-startup')) {
 }
 
 const createWindow = () => {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
       preload: path.join(__dirname, 'preload.js'),
-      webSecurity: false,
+      contextIsolation: true,
+      nodeIntegration: false,
+      enableRemoteModule: false,
+      sandbox: true
     },
   });
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'home.html'));
-
-  var mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   Menu.setApplicationMenu(mainMenu);
 };
 
@@ -50,11 +50,18 @@ app.on('window-all-closed', () => {
   }
 });
 
-var mainMenuTemplate = [
+const mainMenuTemplate = [
   {
     label: 'File',
+    submenu: [
+      {label: 'Exit', click: () => { app.quit(); } }
+    ]
   },
   {
-    label: 'Help',
+    label: 'Edit',
+    submenu: [
+      { label: 'Copy', role: 'copy' },
+      {label: 'Paste', role: 'paste'}
+    ]
   }
 ];
